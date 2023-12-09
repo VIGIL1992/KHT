@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+
     include 'functions/function.php';
     include 'includes/header.php'; 
     include 'includes/navbar.php'; 
@@ -40,7 +42,7 @@
                                 <p>Edit Product Header</p>
                             </div>
                             <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                <!-- <img src="img/about.jpg" alt=""> -->
+                                <input type="hidden" id="product_id"  value="<?= $data['id'] ?>">
                                 <input type="text" class="form-control" id="product_header" name="product_header" value="<?= $data['header'] ?>" placeholder="Product Header">
                             </div>
                         </div>
@@ -52,7 +54,7 @@
                                 <p>Edit Product Header Discription</p>
                             </div>
                             <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                <textarea class="form-control" id="product_desc" name="product_desc" placeholder="Product Description" rows="3" ><?= $data['description'] ?></textarea>
+                                <textarea class="form-control" id="product_desc" name="product_desc" placeholder="Product Description" rows="3" value="<?= $data['description'] ?>" ><?= $data['description'] ?></textarea>
 
                             </div>
                         </div>

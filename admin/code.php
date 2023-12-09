@@ -85,6 +85,30 @@ if(isset($_POST['login_btn'])){
 
 }
 
+
+// Product Page Start Here
+if(isset($_POST['update_product_page_btn'])) {
+    
+    $product_id = $_POST['product_id'];
+    $product_header = $_POST['product_header'];
+    $product_desc = $_POST['product_desc'];
+    
+    $update_product_page_query = "UPDATE product_page SET header='$product_header', description	='$product_desc' WHERE id='1' ";
+                                    // UPDATE `product_page` SET `id`='[value-1]',`header`='[value-2]',`description`='[value-3]' WHERE 1
+    $update_product_page_query_run = mysqli_query($connection, $update_product_page_query);
+    echo "proid";
+    if($update_product_page_query_run){
+
+        echo "Error: " . mysqli_error($connection);
+        redirect("product.php", "Update Succesfully ");
+    }
+
+    else{
+        echo "Error: " . mysqli_error($connection);
+        redirect("product.php", "Not Updated ");
+    }
+}
+
 if (isset($_POST['add_product'])) {
     $product_name = $_POST['product_name'];
 
@@ -150,7 +174,7 @@ if(isset($_POST['edit_product_btn'])) {
             //     echo "Old image not found!"; // Debug statement
             // }
         }
-        redirect("edit_product.php?id=$product_id", "Category Update Succesfully");
+        redirect("edit_product.php?id=$product_id", "Product Update Succesfully");
         
     }
     else {
@@ -159,6 +183,7 @@ if(isset($_POST['edit_product_btn'])) {
 
 
 }
+// Product Page End Here
 
 
 
