@@ -113,10 +113,10 @@
                                             <a href="edit_product.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                             <!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit_product?id=<?= $item['id']; ?>">Edit Products</button> -->
 
-                                            <!-- <form action="code.php" method="POST"> -->
-                                                <!-- <input type="hidden" name="product_id" value=""> -->
-                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                            <!-- </form> -->
+                                            <form action="code.php" method="POST">
+                                                <input type="hidden" name="product_id" value="<?= $item['id']; ?>">
+                                                <button type="submit" class="btn btn-sm btn-danger" name="delete_product_btn">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php
@@ -160,7 +160,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" name="add_product">Save changes</button>
+                                <button type="submit" class="btn btn-primary" name="add_product">Save </button>
                             </div>
                         </form>
                     </div>

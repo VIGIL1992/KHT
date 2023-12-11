@@ -86,6 +86,157 @@ if(isset($_POST['login_btn'])){
 }
 
 
+//Index Page Start Here
+//Index Page Section1 Start Here
+if(isset($_POST['home_s1_btn'])) {
+    
+    $s1_header = $_POST['s1_header'];
+    $s1_desc = $_POST['s1_description'];
+    $s1_button_name = $_POST['s1_button_name'];
+    $s1_button_link = $_POST['s1_button_link'];
+
+    $old_image = $_POST['old_image'];
+    $new_image = $_FILES['s1_newimage']['name'];
+
+
+ if ($new_image != "") {
+        $update_filename = $new_image;
+    }
+    else {
+        $update_filename = $old_image;
+    }
+
+    $path = "../img/home";
+    
+    $update_homepage_query = "UPDATE home_page SET s1_header='$s1_header', s1_description	='$s1_desc', s1_button_name='$s1_button_name' , 
+                            s1_button_link='$s1_button_link', s1_image='$update_filename' WHERE id='1' ";
+    
+    $update_homepage_query_run = mysqli_query($connection, $update_homepage_query);
+   
+    if($update_homepage_query_run){
+        if($_FILES['s1_newimage']['name'] != ""){
+            move_uploaded_file($_FILES['s1_newimage']['tmp_name'], $path.'/'.$new_image);
+            
+            // Check if the old image exists before attempting to delete
+            if(file_exists("../img/home/".$old_image)){
+                // echo "Old image exists!";
+                unlink("../img/home/".$old_image);
+            }
+        }
+
+        echo "Error: " . mysqli_error($connection);
+        redirect("home.php", "Update Succesfully ");
+    }
+
+    else{
+        echo "Error: " . mysqli_error($connection);
+        redirect("home.php", "Not Updated ");
+    }
+}
+//Index Page Section1 End Here
+
+//Index Page Section2 Start Here
+if(isset($_POST['home_s2_btn'])) {
+    
+    $s2_header = $_POST['s2_header'];
+    $s2_desc = $_POST['s2_description'];
+
+    $s2_card1_header = $_POST['s2_card1_header'];
+    $s2_card1_desc = $_POST['s2_card1_description'];
+
+    $s2_card2_header = $_POST['s2_card2_header'];
+    $s2_card2_desc = $_POST['s2_card2_description'];
+
+    $s2_card3_header = $_POST['s2_card3_header'];
+    $s2_card3_desc = $_POST['s2_card3_description'];    
+    //////////
+
+
+    $card1_old_image = $_POST['card1_old_image'];
+    $card1_new_image = $_FILES['card1_newimage']['name'];
+
+    $card2_old_image = $_POST['card2_old_image'];
+    $card2_new_image = $_FILES['card2_newimage']['name'];
+
+    $card3_old_image = $_POST['card3_old_image'];
+    $card3_new_image = $_FILES['card3_newimage']['name'];
+    
+    if ($card1_new_image != "") {
+        $card1_update_filename = $card1_new_image;
+    }
+    else {
+        $card1_update_filename = $card1_old_image;
+    }
+
+    if ($card2_new_image != "") {
+        $card2_update_filename = $card2_new_image;
+    }
+    else {
+        $card2_update_filename = $card2_old_image;
+    }
+
+    if ($card3_new_image != "") {
+        $card3_update_filename = $card3_new_image;
+    }
+    else {
+        $card3_update_filename = $card3_old_image;
+    }
+
+    $path = "../img/home";
+    
+    $update_homepage_query = "UPDATE home_page SET s2_header='$s2_header', s2_description ='$s2_desc', 
+                        s2_card1_icon='$card1_update_filename', s2_card1_header='$s2_card1_header', s2_card1_description='$s2_card1_desc', 
+                        s2_card2_icon='$card2_update_filename', s2_card2_header='$s2_card2_header', s2_card2_description='$s2_card2_desc', 
+                        s2_card3_icon='$card3_update_filename', s2_card3_header='$s2_card3_header', s2_card3_description='$s2_card3_desc' 
+                        WHERE id='1' ";
+    
+    $update_homepage_query_run = mysqli_query($connection, $update_homepage_query);
+   
+    if($update_homepage_query_run){
+        
+        // For Card 1
+        if($_FILES['card1_newimage']['name'] != ""){
+            move_uploaded_file($_FILES['card1_newimage']['tmp_name'], $path.'/'.$card1_new_image);
+            
+            // Check if the old image exists before attempting to delete
+            if(file_exists("../img/home/".$card1_old_image)){
+                // echo "Old image exists!";
+                unlink("../img/home/".$card1_old_image);
+            }
+        }
+        // For Card 2
+        if($_FILES['card2_newimage']['name'] != ""){
+            move_uploaded_file($_FILES['card2_newimage']['tmp_name'], $path.'/'.$card2_new_image);
+            
+            // Check if the old image exists before attempting to delete
+            if(file_exists("../img/home/".$card2_old_image)){
+                // echo "Old image exists!";
+                unlink("../img/home/".$card2_old_image);
+            }
+        }
+        // For Card 3
+        if($_FILES['card3_newimage']['name'] != ""){
+            move_uploaded_file($_FILES['card3_newimage']['tmp_name'], $path.'/'.$card3_new_image);
+            
+            // Check if the old image exists before attempting to delete
+            if(file_exists("../img/home/".$card3_old_image)){
+                // echo "Old image exists!";
+                unlink("../img/home/".$card3_old_image);
+            }
+        }
+
+        echo "Error: " . mysqli_error($connection);
+        redirect("home.php", "Update Succesfully ");
+    }
+
+    else{
+        echo "Error: " . mysqli_error($connection);
+        redirect("home.php", "Not Updated ");
+    }
+}
+//Index Page Section2 End Here
+//Index Page End Here
+
 // Product Page Start Here
 if(isset($_POST['update_product_page_btn'])) {
     
@@ -109,6 +260,7 @@ if(isset($_POST['update_product_page_btn'])) {
     }
 }
 
+//Add new Product
 if (isset($_POST['add_product'])) {
     $product_name = $_POST['product_name'];
 
@@ -140,7 +292,7 @@ if (isset($_POST['add_product'])) {
     
 }
 
-
+//Edit Product
 if(isset($_POST['edit_product_btn'])) {
 
     $product_id = $_POST['product_id'];
@@ -166,13 +318,11 @@ if(isset($_POST['edit_product_btn'])) {
             move_uploaded_file($_FILES['product_image']['tmp_name'], $path.'/'.$new_image);
             
             // Check if the old image exists before attempting to delete
-            if(file_exists("../img/products".$old_image)){
+            if(file_exists("../img/products/".$old_image)){
                 // echo "Old image exists!";
-                unlink("../img/products".$old_image);
+                unlink("../img/products/".$old_image);
             }
-            // else {
-            //     echo "Old image not found!"; // Debug statement
-            // }
+           
         }
         redirect("edit_product.php?id=$product_id", "Product Update Succesfully");
         
@@ -180,8 +330,31 @@ if(isset($_POST['edit_product_btn'])) {
     else {
         redirect("edit_product.php?id=$product_id", "something went wrong");
     }
+}
 
+//Delete Products
+if(isset($_POST['delete_product_btn'])) {
+    $product_id = mysqli_real_escape_string($connection, $_POST['product_id']);
 
+    $product_query = "SELECT * FROM products WHERE id='$product_id' ";
+    $product_query_run = mysqli_query($connection, $product_query);
+
+    $delete_query = "DELETE FROM products WHERE id='$product_id' ";
+    $delete_query_run = mysqli_query($connection, $delete_query);
+    $product_data = mysqli_fetch_array($product_query_run);
+    $image = $product_data["image"];
+
+    if($delete_query_run){
+        // Check if the old image exists before attempting to delete
+        if(file_exists("../img/products/".$image)){
+            // echo "Old image exists!";
+            unlink("../img/products/".$image);
+        }
+        redirect("product.php", "Product Delete Succesfully");
+    }
+    else {
+        redirect("product.php?", "something went wrong");
+    }
 }
 // Product Page End Here
 

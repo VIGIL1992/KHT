@@ -16,87 +16,104 @@
                 
         if(mysqli_num_rows($home_page) > 0) {
             $data = mysqli_fetch_assoc($home_page);
-            ?>    
+            ?>   
+            <div> 
             <!-- 1st section -->
-            <div class="card shadow col-xl-12 col-md-12 mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample-1" class="d-block card-header py-3" data-toggle="collapse"
-                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Home Page 1st Section</Section></h6> 
-                </a>
+                <div class="card shadow col-xl-12 col-md-12 mb-4">
+                    <!-- Card Header - Accordion -->
+                    <a href="#collapseCardExample-1" class="d-block card-header py-3" data-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary">Home Page 1st Section</Section></h6> 
+                    </a>
 
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample-1">
-                    
-                    <form action="code.php" method="POST" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                    <p>Section 1 Header</p>
-                                </div>
-                                <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                    <input type="text" class="form-control" id="s1_header" name="s1_header" value="<?= $data['s1_header'] ?>" placeholder="Page Header">
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse show" id="collapseCardExample-1">
+                        
+                        <form action="code.php" method="POST" enctype="multipart/form-data">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>Section 1 Header</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="s1_header" name="s1_header" value="<?= $data['s1_header'] ?>" placeholder="Page Header">
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                    <p>Change Section image</p>
-                                </div>
-                                <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                    <P>change image</P>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>Current image</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <img src="../img/home/<?= $data['s1_image'] ?>" width="80px" height="80px" alt="<?= $data['s1_image']; ?>" >
+                                        <input type="hidden" name="old_image" value="<?= $data['s1_image'] ?>">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                    <p>change About Section Heading</p>
-                                </div>
-                                <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                <textarea class="form-control" id="s1_description" name="s1_description" placeholder=" Description" rows="3" value="<?= $data['s1_description'] ?>" ><?= $data['s1_description'] ?></textarea>
-
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>Change image</p>
+                                    </div>
+                                    <div class="coloumn">
+                                                
+                                        <input type="file" class="form-control-file" id="s1_newimage " name="s1_newimage">
+                                        <small id="imageHelp" class="form-text text-muted">image dimension: 500px * 600px</small>
+                                                    
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                    <p>Button name</p>
-                                </div>
-                                <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                    <input type="text" class="form-control" id="s1_button_name" name="s1_button_name" value="<?= $data['s1_button_name'] ?>" placeholder="s1_button_name">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>About Section Heading</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                    <textarea class="form-control" id="s1_description" name="s1_description" placeholder=" Description" rows="3" value="<?= $data['s1_description'] ?>" ><?= $data['s1_description'] ?></textarea>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                    <p>Button Link</p>
-                                </div>
-                                <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                    <input type="text" class="form-control" id="s1_button_link" name="s1_button_link" value="<?= $data['s1_button_link'] ?>" placeholder=" s1_button_link">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>Button name</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="s1_button_name" name="s1_button_name" value="<?= $data['s1_button_name'] ?>" placeholder="s1_button_name">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="coloumn col-xl-3 col-md-6 mb-3">
-                                    <!-- <p>Edit Product Header Discription</p> -->
-                                </div>
-                                <div class="coloumn col-xl-6 col-md-6 mb-3">
-                                    <button type="submit" class="btn btn-primary" name="section1_btn">Save changes</button>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>Button Link</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="s1_button_link" name="s1_button_link" value="<?= $data['s1_button_link'] ?>" placeholder=" s1_button_link">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-3">
+                                        <!-- <p>Edit Product Header Discription</p> -->
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-3">
+                                        <button type="submit" class="btn btn-primary" name="home_s1_btn">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -111,148 +128,205 @@
                 
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="collapseCardExample-2">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>2nd section header</p>
-                            </div>
-                            <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_header" name="s2_header" value="<?= $data['s2_header'] ?>" placeholder="s2_header">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row mb-0">
-                            <div class="coloumn col-xl-3 col-md-6 ">
-                                <p>2nd section Image</p>
-                            </div>
-                            <div class="coloumn">
-                                <P>change image</P>
+                    <form action="code.php" method="POST" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                    <p>2nd section header</p>
+                                </div>
+                                <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                    <input type="text" class="form-control" id="s2_header" name="s2_header" value="<?= $data['s2_header'] ?>" placeholder="s2_header">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-body">
-                        <div class="row mb-0">
-                            <div class="coloumn col-xl-3 col-md-6 ">
-                                <p>2nd section description</p>
-                            </div>
-                            <div class="coloumn col-xl-6 col-md-6 ">
-                                <textarea class="form-control" id="s1_button_link" name="s1_button_link" placeholder=" Description" rows="3" value="<?= $data['s2_description'] ?>" ><?= $data['s2_description'] ?></textarea>
+                        
+                        <div class="card-body">
+                            <div class="row mb-0">
+                                <div class="coloumn col-xl-3 col-md-6 ">
+                                    <p>2nd section description</p>
+                                </div>
+                                <div class="coloumn col-xl-6 col-md-6 ">
+                                    <textarea class="form-control" id="s2_description" name="s2_description" placeholder=" Description" rows="3" value="<?= $data['s2_description'] ?>" ><?= $data['s2_description'] ?></textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <!-- First card Start -->
-                    <div class="card-body">
-                        <div class="row mb-4">
-                            <div class="coloumn col-xl-3 col-md-6">
-                                <p>1st card image</p>
+                        <hr>
+                        <!-- First card Start -->
+                        <div>
+                            <div class="card-body">
+                                <div class="row mb-0">
+                                    <div class="coloumn col-xl-3 col-md-6">
+                                        <p>Current image</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 ">
+                                        <img src="../img/home/<?= $data['s2_card1_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card1_icon']; ?>" >
+                                        <input type="hidden" name="card1_old_image" value="<?= $data['s2_card1_icon'] ?>">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="coloumn col-xl-3 col-md-6">
-                                <P>Image</P>
+
+                            <div class="card-body">
+                                <div class="row mb-0">
+                                    <div class="coloumn col-xl-3 col-md-6">
+                                        <p>Change image</p>
+                                    </div>
+                                    <div class="coloumn">
+                                                
+                                        <input type="file" class="form-control-file" id="card1_newimage " name="card1_newimage">
+                                        <small id="imageHelp" class="form-text text-muted">image dimension: 500px * 600px</small>
+                                                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>1st card Header</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="s2_card1_header" name="s2_card1_header" value="<?= $data['s2_card1_header'] ?>" placeholder="s2_card1_header">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>1st card description</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <!-- <input type="text" class="form-control" id="s2_card1_description" name="s2_card1_description" value="<?= $data['s2_card1_description'] ?>" placeholder="s2_card1_description"> -->
+                                        <textarea class="form-control" id="s2_card1_description" name="s2_card1_description" placeholder=" Description" rows="3" value="<?= $data['s2_card1_description'] ?>" >
+                                            <?= $data['s2_card1_description'] ?>
+                                        </textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <!-- First card End -->
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>1st card Header</p>
+                        <hr>
+                        <!-- Second card Start -->
+                        <div>
+                            <div class="card-body">
+                                    <div class="row mb-0">
+                                        <div class="coloumn col-xl-3 col-md-6">
+                                            <p>Current image</p>
+                                        </div>
+                                        <div class="coloumn col-xl-6 col-md-6 ">
+                                            <img src="../img/home/<?= $data['s2_card2_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card2_icon']; ?>" >
+                                            <input type="hidden" name="card2_old_image" value="<?= $data['s2_card2_icon'] ?>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row mb-0">
+                                        <div class="coloumn col-xl-3 col-md-6">
+                                            <p>Change image</p>
+                                        </div>
+                                        <div class="coloumn">
+                                                    
+                                            <input type="file" class="form-control-file" id="card2_newimage " name="card2_newimage">
+                                            <small id="imageHelp" class="form-text text-muted">image dimension: 500px * 600px</small>
+                                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>2nd card Header</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="s2_card2_header" name="s2_card2_header" value="<?= $data['s2_card2_header'] ?>" placeholder="s2_card2_header">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_header" name="s2_header" value="<?= $data['s2_header'] ?>" placeholder="s2_header">
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                        <p>2nd card description</p>
+                                    </div>
+                                    <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                        <!-- <input type="text" class="form-control" id="s2_card1_description" name="s2_card1_description" value="<?= $data['s2_card1_description'] ?>"  placeholder="s2_card1_descriptio"> -->
+                                        <textarea class="form-control" id="s2_card2_description" name="s2_card2_description" placeholder=" Description" rows="3" ><?= $data['s2_card2_description'] ?>
+                                        </textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <!-- Second card End -->
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>1st card description</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_desc" name="s2_desc" value="<?= $data['s2_card1_icon_description	'] ?>" placeholder="s2_desc">
+                        <hr>
+
+                        <!-- Third card Start -->
+                        <div class="card-body">
+                                    <div class="row mb-0">
+                                        <div class="coloumn col-xl-3 col-md-6">
+                                            <p>Current image</p>
+                                        </div>
+                                        <div class="coloumn col-xl-6 col-md-6 ">
+                                            <img src="../img/home/<?= $data['s2_card3_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card3_icon']; ?>" >
+                                            <input type="hidden" name="card3_old_image" value="<?= $data['s2_card3_icon'] ?>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row mb-0">
+                                        <div class="coloumn col-xl-3 col-md-6">
+                                            <p>Change image</p>
+                                        </div>
+                                        <div class="coloumn">
+                                                    
+                                            <input type="file" class="form-control-file" id="card3_newimage " name="card3_newimage">
+                                            <small id="imageHelp" class="form-text text-muted">image dimension: 500px * 600px</small>
+                                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                    <p>3rd card Header</p>
+                                </div>
+                                <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                    <input type="text" class="form-control" id="s2_card3_header" name="s2_card3_header" value="<?= $data['s2_card3_header'] ?>" placeholder="s2_card3_header">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- First card End -->
 
-                    <hr>
-                    <!-- Second card Start -->
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>2nd card image</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <P>Image</P>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="coloumn col-xl-3 col-md-6 mb-4">
+                                    <p>3rd card description</p>
+                                </div>
+                                <div class="coloumn col-xl-6 col-md-6 mb-4">
+                                    <!-- <input type="text" class="form-control" id="s2_card3_description" name="s2_card3_description" value="<?= $data['s2_card3_description'] ?>" placeholder="s2_card3_header"> -->
+                                    <textarea class="form-control" id="s2_card3_description" name="s2_card3_description" placeholder=" Description" rows="3" value="<?= $data['s2_card3_description'] ?>" ><?= $data['s2_card3_description'] ?>
+                                    </textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>2nd card Header</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_header" name="s2_header" value="<?= $data['s2_header'] ?>" placeholder="s2_header">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>2nd card description</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_desc" name="s2_desc" value="<?= $data['s2_card2_icon_description	'] ?>" placeholder="s2_desc">
+                        <!-- Third card End -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="coloumn col-xl-3 col-md-6 mb-3">
+                                    <!-- <p>Edit Product Header Discription</p> -->
+                                </div>
+                                <div class="coloumn col-xl-6 col-md-6 mb-3">
+                                    <button type="submit" class="btn btn-primary" name="home_s2_btn">Save changes</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Second card End -->
 
-                    <hr>
-
-                    <!-- Third card Start -->
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>3rd card image</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <P>Image</P>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>3rd card Header</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_header" name="s2_header" value="<?= $data['s2_header'] ?>" placeholder="s2_header">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>3rd card description</p>
-                            </div>
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <input type="text" class="form-control" id="s2_desc" name="s2_desc" value="<?= $data['s2_card2_icon_description	'] ?>" placeholder="s2_desc">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Third card End -->
-
-
+                    </form>
                 </div>
             </div>
 
