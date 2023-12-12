@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include 'admin/functions/function.php';
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +34,23 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <?php 
+                    $slider = getAll("slider");
+                    
+                    if(mysqli_num_rows($slider) > 0) {
+                        $data = mysqli_fetch_assoc($slider);
+                    ?>
+        <style>
+            .page-header {
+                padding-top: 12rem;
+                padding-bottom: 6rem;
+                background: url(img/slider/<?= $data['bg_image'] ?>) top right no-repeat;
+                background-size: cover;
+            }
+        </style>
+        <?php
+            }
+    ?>
 </head>
 
 <body>

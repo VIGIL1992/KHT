@@ -1,7 +1,7 @@
 <?php
-    session_start();
+    // session_start();
 
-    include 'admin/functions/function.php';
+    // include 'admin/functions/function.php';
     include 'header.php';
     include 'navbar.php';
 ?>
@@ -10,34 +10,45 @@
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-01.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-lg-7">
-                                    <h1 class="display-2 mb-5 animated slideInDown">Welcome To KHT</h1>
-                                    <a href="product.php" class="btn btn-primary rounded-pill py-sm-3 px-sm-5" >Products</a>
-                                    <a href="service.php" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a>
+
+                <?php 
+                    $slider = getAll("slider");
+                            
+                    if(mysqli_num_rows($slider) > 0) {
+                        $data = mysqli_fetch_assoc($slider);
+                        ?>
+
+                        <div class="carousel-item active">
+                            <img class="w-100" src="img/slider/<?= $data['Carousel_1_image'] ?>" alt="Image" style="height: 100vh">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-start">
+                                        <div class="col-lg-7">
+                                            <h1 class="display-2 mb-5 animated slideInDown"><br></h1>
+                                            <a href="<?= $data['Carousel_1_button1_link'] ?>" class="btn btn-primary rounded-pill py-sm-3 px-sm-5" ><?= $data['Carousel_1_button1_name'] ?></a>
+                                            <a href="<?= $data['Carousel_1_button2_link'] ?>" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"><?= $data['Carousel_1_button2_name'] ?></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-lg-7">
-                                    <h1 class="display-2 mb-5 animated slideInDown">Tasty & Healthy  <br>Food Products</h1>
-                                    <a href="product.php" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
-                                    <a href="service.php" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a>
+                        <div class="carousel-item">
+                            <img class="w-100" src="img/slider/<?= $data['Carousel_2_image'] ?>" alt="Image" style="height: 100vh">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-start">
+                                        <div class="col-lg-7">
+                                            <h1 class="display-2 mb-5 animated slideInDown"><?= $data['Carousel_2_header'] ?></h1>
+                                            <a href="<?= $data['Carousel_2_button1_link'] ?>" class="btn btn-primary rounded-pill py-sm-3 px-sm-5"><?= $data['Carousel_2_button1_name'] ?></a>
+                                            <a href="<?= $data['Carousel_2_button2_link'] ?>" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"><?= $data['Carousel_2_button2_name'] ?></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <?php
+                    }
+                ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                 data-bs-slide="prev">
@@ -103,7 +114,7 @@
                                 <img class="img-fluid mb-4" src="img/home/<?= $data['s2_card2_icon'] ?>" alt="<?= $data['s2_card2_header'] ?>">
                                 <h4 class="mb-3"><?= $data['s2_card2_header'] ?></h4>
                                 <p class="mb-4"><?= $data['s2_card2_description'] ?> </p>
-                                <!-- <p class="mb-4"><?= $data['s2_card3_description'] ?></p> -->
+                                
                                 <!-- <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a> -->
                             </div>
                         </div>
@@ -201,16 +212,3 @@
 
     
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
-</html>

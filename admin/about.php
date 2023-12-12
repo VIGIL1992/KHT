@@ -12,10 +12,10 @@
     <div class="container-fluid">
 
     <?php 
-        $home_page = getAll("home_page");
+        $about_page = getAll("about_page");
                 
-        if(mysqli_num_rows($home_page) > 0) {
-            $data = mysqli_fetch_assoc($home_page);
+        if(mysqli_num_rows($about_page) > 0) {
+            $data = mysqli_fetch_assoc($about_page);
             ?>   
             <div> 
             <!-- 1st section -->
@@ -23,7 +23,7 @@
                     <!-- Card Header - Accordion -->
                     <a href="#collapseCardExample-1" class="d-block card-header py-3" data-toggle="collapse"
                         role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">Home Page 1st Section</Section></h6> 
+                        <h6 class="m-0 font-weight-bold text-primary">About Page 1st Section</Section></h6> 
                     </a>
 
                     <!-- Card Content - Collapse -->
@@ -48,7 +48,7 @@
                                         <p>Current image</p>
                                     </div>
                                     <div class="coloumn col-xl-6 col-md-6 mb-4">
-                                        <img src="../img/home/<?= $data['s1_image'] ?>" width="80px" height="80px" alt="<?= $data['s1_image']; ?>" >
+                                        <img src="../img/about/<?= $data['s1_image'] ?>" width="80px" height="80px" alt="<?= $data['s1_image']; ?>" alt="<?= $data['s1_header'] ?>" >
                                         <input type="hidden" name="old_image" value="<?= $data['s1_image'] ?>">
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                         <!-- <p>Edit Product Header Discription</p> -->
                                     </div>
                                     <div class="coloumn col-xl-6 col-md-6 mb-3">
-                                        <button type="submit" class="btn btn-primary" name="home_s1_btn">Save changes</button>
+                                        <button type="submit" class="btn btn-primary" name="about_s1_btn">Save changes</button>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                                         <p>Current image</p>
                                     </div>
                                     <div class="coloumn col-xl-6 col-md-6 ">
-                                        <img src="../img/home/<?= $data['s2_card1_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card1_icon']; ?>" >
+                                        <img src="../img/about/<?= $data['s2_card1_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card1_icon']; ?>" >
                                         <input type="hidden" name="card1_old_image" value="<?= $data['s2_card1_icon'] ?>">
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                             <p>Current image</p>
                                         </div>
                                         <div class="coloumn col-xl-6 col-md-6 ">
-                                            <img src="../img/home/<?= $data['s2_card2_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card2_icon']; ?>" >
+                                            <img src="../img/about/<?= $data['s2_card2_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card2_icon']; ?>" >
                                             <input type="hidden" name="card2_old_image" value="<?= $data['s2_card2_icon'] ?>">
                                         </div>
                                     </div>
@@ -271,7 +271,7 @@
                                             <p>Current image</p>
                                         </div>
                                         <div class="coloumn col-xl-6 col-md-6 ">
-                                            <img src="../img/home/<?= $data['s2_card3_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card3_icon']; ?>" >
+                                            <img src="../img/about/<?= $data['s2_card3_icon'] ?>" width="80px" height="80px" alt="<?= $data['s2_card3_icon']; ?>" >
                                             <input type="hidden" name="card3_old_image" value="<?= $data['s2_card3_icon'] ?>">
                                         </div>
                                     </div>
@@ -321,7 +321,7 @@
                                     <!-- <p>Edit Product Header Discription</p> -->
                                 </div>
                                 <div class="coloumn col-xl-6 col-md-6 mb-3">
-                                    <button type="submit" class="btn btn-primary" name="home_s2_btn">Save changes</button>
+                                    <button type="submit" class="btn btn-primary" name="about_s2_btn">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -330,43 +330,6 @@
                 </div>
             </div>
 
-
-            <!-- 4th Section -->
-            <div class="card shadow col-xl-12 col-md-12 mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample-3" class="d-block card-header py-3" data-toggle="collapse"
-                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit Product Section</h6> 
-                </a>
-                
-                <!-- Card Content - Collapse -->
-                <div class="collapse " id="collapseCardExample-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>edit product header</p>
-                            </div>
-                            <div class="coloumn">
-                                <p>header</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>edit product discription</p>
-                            </div>
-                            <div class="coloumn">
-                                <P>change image</P>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                </div>
-            </div>
             <?php 
         }
     ?>
