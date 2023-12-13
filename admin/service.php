@@ -1,7 +1,7 @@
 <?php
-    session_start();
+    // session_start();
 
-    include 'functions/function.php'; 
+    // include 'functions/function.php'; 
     include 'includes/header.php'; 
     include 'includes/navbar.php'; 
 

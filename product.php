@@ -11,13 +11,22 @@
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s" > 
                    
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Products</h1>
+            <?php 
+                $navbar_and_footer = getAll("navbar_and_footer");
+                        
+                if(mysqli_num_rows($navbar_and_footer) > 0) {
+                    $data = mysqli_fetch_assoc($navbar_and_footer);
+                    ?>
+            <h1 class="display-3 mb-3 animated slideInDown"><?= $data['page3'] ?></h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="text-body" href="index.php">Home</a></li>
                     <!-- <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li> -->
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Products</li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page"><?= $data['page3'] ?></li>
                 </ol>
+                <?php 
+                }
+            ?>
             </nav>
         </div>
     </div>
@@ -65,7 +74,9 @@
                         $products = getAll("products");
 
                         if(mysqli_num_rows($products) > 0) {
+                            
                             foreach($products as $item) {
+                                
                                 ?>
                                 <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="product-item">
@@ -74,7 +85,8 @@
                                             <img  class="" src="img/products/<?= $item['image'] ?>" alt="<?= $item['name']; ?> width="300px" height="300px""> 
                                         </div>
                                         <div class="text-center p-4">
-                                            <a class="d-block h5 mb-2" href=""><?= $item['name']; ?></a>
+                                            <!-- <a class="d-block h5 mb-2" href=""><?= $item['name']; ?></a> -->
+                                            <p class="d-block h5 mb-2"><?= $item['name']; ?></p>
                                             <!-- <span class="text-primary me-1">$19.00</span>
                                             <span class="text-body text-decoration-line-through">$29.00</span> -->
                                         </div>

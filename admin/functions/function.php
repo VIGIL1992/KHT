@@ -20,4 +20,13 @@ function getByID($table, $_id){
 }
 
 
+function getTotalProductsCount() {
+    $products = getAll("products"); // Assuming getAll() fetches all rows from the "products" table
+    
+    // Count the number of rows fetched
+    $total_products = mysqli_num_rows($products);
+    
+    return $total_products;
+}
+
 ?>

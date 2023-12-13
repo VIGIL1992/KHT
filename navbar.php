@@ -40,8 +40,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav ms-auto p-4 p-lg-0">
-                            <a href="index.php" class="nav-item nav-link"><?=  $data['page1'] ?></a>
+                        <div class="navbar-nav ms-auto p-4 p-lg-0 capitalize-text" style="text-transform: capitalize;">
+                            <a href="index.php" class="nav-item nav-link"><?= $data['page1'] ?></a>
                             <a href="about.php" class="nav-item nav-link"><?= $data['page2'] ?></a>
                             <a href="product.php" class="nav-item nav-link"><?= $data['page3'] ?></a>
                             <a href="service.php" class="nav-item nav-link"><?= $data['page4'] ?></a>

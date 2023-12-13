@@ -17,20 +17,45 @@
                             <?php 
                         }
                     ?>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
                     <?php 
                         $contact_page = getAll("contact_page");
                                 
                         if(mysqli_num_rows($contact_page) > 0) {
                             $data = mysqli_fetch_assoc($contact_page);
-                            ?> 
+                            ?>
+                    <div class="d-flex pt-2">
+                    <?php if( $data['twitter'] !=""){ ?>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href="<?= $data['twitter'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <?php   } 
+                        if( $data['facebook'] !=""){
+                    ?>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="<?= $data['facebook'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <?php   } 
+                        if( $data['youtube'] !=""){
+                     ?>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="<?= $data['youtube'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <?php   } 
+                        if( $data['linkedIn'] !=""){
+                     ?>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="<?= $data['linkedIn'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <?php   } 
+                        if( $data['whatsApp'] !=""){
+                     ?>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="<?= $data['whatsApp'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                        <?php   } 
+                        if( $data['TikTok'] !=""){
+                     ?>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="<?= $data['TikTok'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></i></i></a>
+                        <?php   } 
+                        if( $data['instagram'] !=""){
+                     ?>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="<?= $data['instagram'] ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <?php   } 
+                     ?>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                     
                             <h4 class="text-light mb-4">Address</h4>
                             <p><i class="fa fa-map-marker-alt me-3"></i><?= $data['address'] ?> </p>
                             <p><i class="fa fa-phone-alt me-3"></i><?= $data['phone_num'] ?></p>
@@ -48,7 +73,7 @@
                             ?> 
                             <h4 class="text-light mb-4">Quick Links</h4>
                             <a class="btn btn-link" href="index.php"><?= $data['page1'] ?></a>
-                            <a class="btn btn-link" href="about.php"><?= $data['page2'] ?> Us</a>
+                            <a class="btn btn-link" href="about.php"><?= $data['page2'] ?> </a>
                             <a class="btn btn-link" href="service.php"><?= $data['page3'] ?></a>
                             <a class="btn btn-link" href="service.php"><?= $data['page4'] ?></a>
                             <a class="btn btn-link" href="contact.php"><?= $data['page5'] ?></a>

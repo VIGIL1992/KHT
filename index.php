@@ -24,7 +24,7 @@
                                 <div class="container">
                                     <div class="row justify-content-start">
                                         <div class="col-lg-7">
-                                            <h1 class="display-2 mb-5 animated slideInDown"><br></h1>
+                                            <h1 class="display-2 mb-5 animated slideInDown"><?= $data['Carousel_1_header'] ?></h1>
                                             <a href="<?= $data['Carousel_1_button1_link'] ?>" class="btn btn-primary rounded-pill py-sm-3 px-sm-5" ><?= $data['Carousel_1_button1_name'] ?></a>
                                             <a href="<?= $data['Carousel_1_button2_link'] ?>" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"><?= $data['Carousel_1_button2_name'] ?></a>
                                         </div>
@@ -174,7 +174,8 @@
                                                 <img class="" src="img/products/<?= $item['image'] ?>"  width="300px" height="300px" alt="<?= $item['name']; ?>">
                                             </div>
                                             <div class="text-center p-4">
-                                                <a class="d-block h5 mb-2" href=""><?= $item['name']; ?></a>
+                                                <!-- <a class="d-block h5 mb-2" href=""><?= $item['name']; ?></a> -->
+                                                <p class="d-block h5 mb-2"><?= $item['name']; ?></p>
                                             </div>
                                             
                                         </div>

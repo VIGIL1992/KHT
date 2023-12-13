@@ -1,7 +1,5 @@
 <?php 
-    session_start();
-
-    include 'functions/function.php';
+    
     include 'includes/header.php'; 
     include 'includes/navbar.php'; 
 
@@ -331,42 +329,7 @@
             </div>
 
 
-            <!-- 4th Section -->
-            <div class="card shadow col-xl-12 col-md-12 mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample-3" class="d-block card-header py-3" data-toggle="collapse"
-                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit Product Section</h6> 
-                </a>
-                
-                <!-- Card Content - Collapse -->
-                <div class="collapse " id="collapseCardExample-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>edit product header</p>
-                            </div>
-                            <div class="coloumn">
-                                <p>header</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="coloumn col-xl-3 col-md-6 mb-4">
-                                <p>edit product discription</p>
-                            </div>
-                            <div class="coloumn">
-                                <P>change image</P>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                </div>
-            </div>
+            
             <?php 
         }
     ?>

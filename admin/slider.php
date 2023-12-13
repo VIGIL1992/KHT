@@ -1,6 +1,6 @@
 <?php 
-    session_start();
-    include 'functions/function.php';
+    // session_start();
+    // include 'functions/function.php';
     include 'includes/header.php'; 
     include 'includes/navbar.php';
 

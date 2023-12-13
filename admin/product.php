@@ -1,7 +1,7 @@
 <?php 
-    session_start();
+    // session_start();
 
-    include 'functions/function.php';
+    // include 'functions/function.php';
     include 'includes/header.php'; 
     include 'includes/navbar.php'; 
     
@@ -101,10 +101,12 @@
                         $products = getAll("products");
 
                         if(mysqli_num_rows($products) > 0) {
+                            $i=0;
                             foreach($products as $item) {
+                                $i++;
                                 ?>
                                     <tr>
-                                        <th scope="row"><?= $item['id']; ?></th>
+                                        <th scope="row"><?= $i; ?></th>
                                         <td> <?= $item['name']; ?> </td>
                                         <td> <img src="../img/products/<?= $item['image'] ?>" width="80px" height="80px" alt="<?= $item['name']; ?>"> </td>
                                         <td>

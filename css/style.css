@@ -387,3 +387,8 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+
+
+.capitalize-text {
+    text-transform: capitalize;
+  }

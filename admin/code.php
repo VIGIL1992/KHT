@@ -614,13 +614,27 @@ if(isset($_POST['service_btn'])) {
 // Contact Page Start Here
 if(isset($_POST['contact_btn'])) {
 
+    $header = $_POST['header'];
+    $desc_1 = $_POST['desc_1'];
+    $desc_2 = $_POST['desc_2'];
+    
     $phone_num = $_POST['phone_num'];
     $email = $_POST['email'];
 
     $address = $_POST['address'];
     $location_url = $_POST['location_url'];
 
-    $update_contact_page_query = "UPDATE contact_page SET phone_num='$phone_num', email ='$email', address='$address', location_url='$location_url' WHERE id='1' ";
+    $twitter = $_POST['twitter'];
+    $facebook = $_POST['facebook'];
+    $linkedIn = $_POST['linkedIn'];
+    $instagram = $_POST['instagram'];
+    $whatsApp = $_POST['whatsApp'];
+    $TikTok = $_POST['TikTok'];
+    $youtube = $_POST['youtube'];
+
+    $update_contact_page_query = "UPDATE contact_page SET header='$header', desc_1='$desc_1', desc_2='$desc_2', phone_num='$phone_num', email ='$email', address='$address', 
+                    location_url='$location_url', twitter='$twitter', facebook='$facebook', linkedIn='$linkedIn', instagram='$instagram', whatsApp='$whatsApp', 
+                    TikTok='$TikTok', youtube='$youtube' WHERE id='1' ";
 
     $update_contact_page_query_run = mysqli_query($connection, $update_contact_page_query);
 
